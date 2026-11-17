@@ -96,10 +96,10 @@ kbd + kbd { margin-left: -2px; }
 @media (prefers-reduced-motion: reduce) { .mark-glow i { animation: none; } }
 
 
-/* the room: the player's ambient light, spread over the first screen at ~45% */
+/* the room: the player's ambient light, spread over the first screen at ~30% */
 .room { position: absolute; inset: 0 0 auto 0; height: 115vh; z-index: -1; pointer-events: none; overflow: hidden;
   -webkit-mask: linear-gradient(#000 55%, transparent); mask: linear-gradient(#000 55%, transparent);
-  opacity: calc(.45 * (.55 + .45 * var(--lift, 1))); transition: opacity .6s ease; }
+  opacity: calc(.3 * (.55 + .45 * var(--lift, 1))); transition: opacity .6s ease; }
 .room-glow { position: absolute; inset: -12%; width: 124%; height: 124%; filter: blur(70px) saturate(1.35) contrast(1.15) brightness(.85); }
 .room-dust { position: absolute; inset: 0; width: 100%; height: 100%; }
 body { position: relative; isolation: isolate; }
