@@ -1,6 +1,6 @@
 # VJ Caustic
 
-A liquid glass skin for the Video.js v10 player, named after the patterns light makes through glass.
+A Video.js v10 skin made of light and glass, named after the patterns light makes through water and glass.
 
 Every control is a pane of glass that bends and refracts the video behind it. Pause, and the picture lifts off into a 3D space lit by its own colors, then settles back flat when you play.
 
