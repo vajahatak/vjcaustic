@@ -72,6 +72,7 @@ a:focus-visible, .seg-b:focus-visible { outline: 2px solid var(--label); outline
 
 .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; }
 /* segmented control */
+.seg-right { margin-left: auto; }
 .seg { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--fill); }
 .seg-b { display: inline-flex; align-items: center; gap: 7px; font: 590 13px var(--font); color: var(--label2); background: none; border: 0; padding: 8px 16px; min-height: 36px; border-radius: 999px; cursor: pointer; transition: background .3s, color .3s, box-shadow .3s; }
 .seg-b:hover { color: var(--label); }
@@ -571,14 +572,14 @@ video-player { display: block; width: 100%; }
   </div>
 
   <div class="tools">
-    <div class="seg" role="radiogroup" aria-label="Player size">
-      <button class="seg-b" role="radio" aria-checked="true" data-shape="wide"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3.5" width="16" height="10.5" rx="1.8"/><path d="M7 17h6M10 14v3"/></svg>Desktop</button>
-      <button class="seg-b" role="radio" aria-checked="false" data-shape="tall"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="2" width="9" height="16" rx="2"/><path d="M9 15.5h2"/></svg>Mobile</button>
-    </div>
     <label class="file-b">
       <input type="file" accept="video/*" id="file">
       Play your own video
     </label>
+    <div class="seg seg-right" role="radiogroup" aria-label="Player size">
+      <button class="seg-b" role="radio" aria-checked="true" data-shape="wide"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3.5" width="16" height="10.5" rx="1.8"/><path d="M7 17h6M10 14v3"/></svg>Desktop</button>
+      <button class="seg-b" role="radio" aria-checked="false" data-shape="tall"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="2" width="9" height="16" rx="2"/><path d="M9 15.5h2"/></svg>Mobile</button>
+    </div>
   </div>
   <p class="lede lede-center">A Video.js v10 skin made of light and glass. Every control bends the picture behind it, the way water throws caustic light.</p>
 
