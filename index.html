@@ -47,7 +47,7 @@ a:hover { text-decoration-color: var(--label); }
 a:focus-visible, .seg-b:focus-visible { outline: 2px solid var(--label); outline-offset: 3px; border-radius: 4px; }
 
 .hero { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px 40px; flex-wrap: wrap; }
-.mark { margin: 0; font-family: "Zen Dots", var(--font); font-weight: 400; font-size: clamp(20px, 2vw, 26px); line-height: 1; letter-spacing: .02em; color: #fff; }
+.mark { margin: 0; font-family: "Zen Dots", var(--font); font-weight: 400; font-size: clamp(26px, 2.8vw, 36px); line-height: 1; letter-spacing: .02em; color: #fff; }
 .mark-svg { position: relative; display: block; width: 100%; height: auto; overflow: visible; }
 .mark-t { font-family: var(--display); font-weight: 700; font-size: 196px; font-variation-settings: "opsz" 96; letter-spacing: -4px; }
 /* colored light drifting behind the glass letters */
@@ -59,7 +59,11 @@ a:focus-visible, .seg-b:focus-visible { outline: 2px solid var(--label); outline
 .mark-glow i:nth-child(4) { left: 64%; top: 8%; background: var(--cyan); animation-delay: -13s; }
 @keyframes drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(8%, 10%) scale(1.15); } 100% { transform: translate(-6%, -6%) scale(.92); } }
 
-.hero-copy { display: grid; gap: 10px; max-width: 46ch; text-align: right; padding-top: 4px; }
+.hero-copy { display: grid; gap: 4px; text-align: right; padding-top: 2px; }
+.hero-copy p { margin: 0; font-size: 12.5px; color: var(--label3); }
+.hero-copy .foot-line { color: var(--label2); font-size: 13px; }
+.hero-copy a { color: var(--label2); }
+.lede-center { justify-self: center; text-align: center; max-width: 52ch; font-size: clamp(16px, 1.5vw, 18px) !important; line-height: 1.55; color: var(--label2); margin: 4px 0 0 !important; }
 .lede { margin: 0; font-size: 14px; line-height: 1.55; color: var(--label2); text-wrap: pretty; }
 .credit { margin: 0; font-size: 13.5px; color: var(--label3); }
 .credit a { color: var(--label2); }
@@ -125,6 +129,7 @@ kbd + kbd { margin-left: -2px; }
 .try input { position: absolute; width: 1px; height: 1px; opacity: 0; }
 
 /* shortcuts */
+.keys-sec h2 { text-align: center; }
 .keys-sec { padding: clamp(28px, 5vw, 56px) 0 clamp(8px, 2vw, 20px); border-top: 1px solid rgb(255 255 255 / .07); scroll-margin-top: 24px; }
 .keys-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px 28px; margin: 22px 0 0; }
 .keys-grid div { display: grid; gap: 8px; }
@@ -443,8 +448,8 @@ video-player { display: block; width: 100%; }
   <header class="hero" id="top">
     <h1 class="mark">VJCaustic</h1>
     <div class="hero-copy">
-      <p class="lede">A Video.js v10 skin made of light and glass. Every control bends the picture behind it, the way water throws caustic light.</p>
-      
+      <p class="foot-line">Made for the Video.js Skins by <a href="https://vajahat.com">Vajahat</a>.</p>
+      <p>Built with Video.js v10, three.js and Mux. <a href="https://github.com/vajahatak/vjcaustic">Source on GitHub</a>, Apache 2.0.</p>
     </div>
   </header>
 
@@ -575,21 +580,7 @@ video-player { display: block; width: 100%; }
       Play your own video
     </label>
   </div>
-
-  <section class="keys-sec" id="keys" aria-labelledby="keys-h">
-    <h2 id="keys-h">Every control, from the keyboard.</h2>
-    <dl class="keys-grid">
-      <div><dt><kbd>Space</kbd><kbd>K</kbd></dt><dd>Play or pause</dd></div>
-      <div><dt><kbd>←</kbd><kbd>→</kbd></dt><dd>Seek 5 seconds</dd></div>
-      <div><dt><kbd>J</kbd><kbd>L</kbd></dt><dd>Seek 10 seconds</dd></div>
-      <div><dt><kbd>↑</kbd><kbd>↓</kbd></dt><dd>Volume</dd></div>
-      <div><dt><kbd>M</kbd></dt><dd>Mute</dd></div>
-      <div><dt><kbd>F</kbd></dt><dd>Fullscreen</dd></div>
-      <div><dt><kbd>0</kbd>to<kbd>9</kbd></dt><dd>Jump to 0 to 90%</dd></div>
-      <div><dt><kbd>Tab</kbd></dt><dd>Move between controls</dd></div>
-    </dl>
-    <p class="keys-touch">On touch screens, double tap the left or right side to skip 10 seconds.</p>
-  </section>
+  <p class="lede lede-center">A Video.js v10 skin made of light and glass. Every control bends the picture behind it, the way water throws caustic light.</p>
 
   <section class="feature" id="lift">
     <div class="feature-text">
@@ -619,6 +610,21 @@ video-player { display: block; width: 100%; }
       <label class="try"><input type="file" accept="video/*" class="file-proxy">Play your own video</label>
     </div>
     <div class="feature-shot feature-swatch" aria-hidden="true"><span></span></div>
+  </section>
+
+  <section class="keys-sec" id="keys" aria-labelledby="keys-h">
+    <h2 id="keys-h">Every control, from the keyboard.</h2>
+    <dl class="keys-grid">
+      <div><dt><kbd>Space</kbd><kbd>K</kbd></dt><dd>Play or pause</dd></div>
+      <div><dt><kbd>←</kbd><kbd>→</kbd></dt><dd>Seek 5 seconds</dd></div>
+      <div><dt><kbd>J</kbd><kbd>L</kbd></dt><dd>Seek 10 seconds</dd></div>
+      <div><dt><kbd>↑</kbd><kbd>↓</kbd></dt><dd>Volume</dd></div>
+      <div><dt><kbd>M</kbd></dt><dd>Mute</dd></div>
+      <div><dt><kbd>F</kbd></dt><dd>Fullscreen</dd></div>
+      <div><dt><kbd>0</kbd>to<kbd>9</kbd></dt><dd>Jump to 0 to 90%</dd></div>
+      <div><dt><kbd>Tab</kbd></dt><dd>Move between controls</dd></div>
+    </dl>
+    <p class="keys-touch">On touch screens, double tap the left or right side to skip 10 seconds.</p>
   </section>
 
   <footer class="foot">
