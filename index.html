@@ -46,7 +46,7 @@ a { color: var(--label); text-decoration-color: var(--label3); text-underline-of
 a:hover { text-decoration-color: var(--label); }
 a:focus-visible, .seg-b:focus-visible { outline: 2px solid var(--label); outline-offset: 3px; border-radius: 4px; }
 
-.hero { display: grid; gap: 14px; justify-items: start; }
+.hero { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px 40px; flex-wrap: wrap; }
 .mark { position: relative; margin: 0; line-height: 0; isolation: isolate; width: clamp(150px, 16vw, 200px); }
 .mark-svg { position: relative; display: block; width: 100%; height: auto; overflow: visible; }
 .mark-t { font-family: var(--display); font-weight: 700; font-size: 196px; font-variation-settings: "opsz" 96; letter-spacing: -4px; }
@@ -59,7 +59,7 @@ a:focus-visible, .seg-b:focus-visible { outline: 2px solid var(--label); outline
 .mark-glow i:nth-child(4) { left: 64%; top: 8%; background: var(--cyan); animation-delay: -13s; }
 @keyframes drift { 0% { transform: translate(0, 0) scale(1); } 50% { transform: translate(8%, 10%) scale(1.15); } 100% { transform: translate(-6%, -6%) scale(.92); } }
 
-.hero-copy { display: grid; gap: 10px; max-width: 58ch; }
+.hero-copy { display: grid; gap: 10px; max-width: 46ch; text-align: right; padding-top: 4px; }
 .lede { margin: 0; font-size: 14px; line-height: 1.55; color: var(--label2); text-wrap: pretty; }
 .credit { margin: 0; font-size: 13.5px; color: var(--label3); }
 .credit a { color: var(--label2); }
@@ -69,8 +69,9 @@ a:focus-visible, .seg-b:focus-visible { outline: 2px solid var(--label); outline
 .tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; }
 /* segmented control */
 .seg { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--fill); }
-.seg-b { font: 590 13px var(--font); color: var(--label2); background: none; border: 0; padding: 8px 16px; min-height: 36px; border-radius: 999px; cursor: pointer; transition: background .3s, color .3s, box-shadow .3s; }
+.seg-b { display: inline-flex; align-items: center; gap: 7px; font: 590 13px var(--font); color: var(--label2); background: none; border: 0; padding: 8px 16px; min-height: 36px; border-radius: 999px; cursor: pointer; transition: background .3s, color .3s, box-shadow .3s; }
 .seg-b:hover { color: var(--label); }
+.seg-b svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
 .seg-b[aria-checked="true"] { background: #636366; color: var(--label); box-shadow: 0 3px 8px rgb(0 0 0 / .25), inset 0 .5px 0 rgb(255 255 255 / .2); }
 /* primary button */
 .file-b { position: relative; font: 600 13.5px var(--font); color: #000; background: var(--label); padding: 10px 18px; border-radius: 999px; cursor: pointer; transition: transform .45s var(--spring), box-shadow .3s; box-shadow: 0 6px 20px -6px rgb(var(--amb) / .7); }
@@ -128,12 +129,16 @@ kbd + kbd { margin-left: -2px; }
 .keys-grid dt { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--label3); }
 .keys-grid dd { margin: 0; font-size: 13px; color: var(--label2); }
 .keys-touch { margin: 24px 0 0; font-size: 12.5px; color: var(--label3); }
-.foot { display: grid; gap: 6px; }
+.credit-block { margin-left: auto; display: grid; gap: 4px; text-align: right; }
+.credit-block p { margin: 0; font-size: 12.5px; color: var(--label3); }
+.credit-block a { color: var(--label2); }
 .foot p { margin: 0; font-size: 12.5px; color: var(--label3); }
 .foot-line { color: var(--label2) !important; font-size: 13px !important; }
 .foot a { color: var(--label2); }
 
 @media (max-width: 760px) {
+  .hero-copy { text-align: left; }
+  .credit-block { margin-left: 0; text-align: left; width: 100%; }
   .nav-links { display: none; }
   .nav-out { margin-left: auto; }
   .feature { grid-template-columns: 1fr; }
@@ -594,28 +599,19 @@ video-player { display: block; width: 100%; }
   </div>
 
   <div class="tools">
-    <div class="seg" role="radiogroup" aria-label="Player shape">
-      <button class="seg-b" role="radio" aria-checked="true" data-shape="wide">16:9</button>
-      <button class="seg-b" role="radio" aria-checked="false" data-shape="tall">9:16</button>
+    <div class="seg" role="radiogroup" aria-label="Player size">
+      <button class="seg-b" role="radio" aria-checked="true" data-shape="wide"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="3.5" width="16" height="10.5" rx="1.8"/><path d="M7 17h6M10 14v3"/></svg>Desktop</button>
+      <button class="seg-b" role="radio" aria-checked="false" data-shape="tall"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="5.5" y="2" width="9" height="16" rx="2"/><path d="M9 15.5h2"/></svg>Mobile</button>
     </div>
     <label class="file-b">
       <input type="file" accept="video/*" id="file">
       Play your own video
     </label>
-  </div>
-
-  <footer class="foot">
-    <p class="foot-line">Made for the Video.js Skins by <a href="https://vajahat.com">Vajahat</a>.</p>
-    <p>Built with Video.js v10, three.js and Mux. <a href="https://github.com/vajahatak/vjcaustic">Source on GitHub</a>, Apache 2.0.</p>
-  </footer>
-
-  <section class="feature" id="glass">
-    <div class="feature-text">
-      <h2>Glass that bends light.</h2>
-      <p>The controls are not blurred boxes. A shader refracts the live video through every pane, so the picture curves at the edges, with a soft frost and a hint of color fringing.</p>
+    <div class="credit-block">
+      <p class="foot-line">Made for the Video.js Skins by <a href="https://vajahat.com">Vajahat</a>.</p>
+      <p>Built with Video.js v10, three.js and Mux. <a href="https://github.com/vajahatak/vjcaustic">Source on GitHub</a>, Apache 2.0.</p>
     </div>
-    <figure class="feature-shot"><img src="data:image/webp;base64,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" alt="The glass control bar over a dusk landscape, the picture bending at its edges" width="1066" height="240" loading="lazy"></figure>
-  </section>
+  </div>
 
   <section class="feature" id="lift">
     <div class="feature-text">
